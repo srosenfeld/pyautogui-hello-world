@@ -1,11 +1,6 @@
 # pyautogui-hello-world
-This basic program utilizes Python's 'os' command to open a new notepad file. After notepad is open, the Python pyautogui package sends keyboard and mouse commands to the windows.
+This basic program utilizes Python's 'os' command to open a new notepad file. After notepad is open, the Python pyautogui package sends keyboard and mouse commands to the windows. The end result is the computer will type "Hello World!" in Windows Notepad
 
-
-Type "Hello World!" in Windows Notepad
---------------------------------------
-Description: This basic program utilizes Python's 'os' command to open a new notepad file.
-After notepad is open, the Python pyautogui package sends keyboard and mouse commands to the windows.
 --------------------------------------
 
 Instructions:
