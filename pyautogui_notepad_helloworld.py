@@ -20,21 +20,20 @@ Be conscious of the / versus \ !
 import os
 import pyautogui as pg
 
+#change the filepath below to match the shortcut on your desktop
 filepath = "C:/Users/srosenfeld/desktop/notepadshortcut"
 
+#opens the file specified in filepath
 os.startfile(filepath)
 
-pg.position()
+#changes the number of seconds that each step waits until next one
+pg.PAUSE = 1
 
-pg.size()
-#(1920,1080)
-
-pg.PAUSE = 0.5
+#if True, the program will close when mouse goes to top-left corner
 pg.FAILSAFE = False
 
-pg.moveTo(960, 540, 0.2)
-pg.moveTo(960, 200, 0.2)
-
+#left clicks at the x-y coordinates 960, 200
 pg.click(960, 200, 1, 0, button='left')
 
+#sends the keyboard command to the selected window at the seconds specified in interval
 pg.typewrite('Hello world!\n', interval = 0.01)
