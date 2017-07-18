@@ -2,7 +2,7 @@
 Type "Hello World!" in Windows Notepad
 --------------------------------------
 Description: This basic program utilizes Python's 'os' command to open a new notepad file.
-After notepad is open, the Python pyautogui package sends keyboard and mouse commands to the windows.
+After notepad is open and focused, the Python pyautogui package sends keyboard and mouse commands to the windows.
 --------------------------------------
 
 Instructions:
@@ -14,6 +14,9 @@ Under "Run", change "Normal" to "Maximized" so the program opens in full screen.
 
 3. In the script below, change the filepath to point toward the shortcut on your desktop.
 Be conscious of the / versus \ !
+
+Note: Please be sure that you don't leave a window blocking notepad when it opens.
+You can change where the mouse goes and clicks in pg.doubleClick(x, y) if need be.
 
 '''
 
@@ -33,7 +36,7 @@ pg.PAUSE = 1
 pg.FAILSAFE = False
 
 #left clicks at the x-y coordinates 960, 200
-pg.click(960, 200, 1, 0, button='left')
+pg.doubleClick(200, 200, 1, button='left')
 
 #sends the keyboard command to the selected window at the seconds specified in interval
 pg.typewrite('Hello world!\n', interval = 0.01)
