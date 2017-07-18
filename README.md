@@ -12,3 +12,7 @@ Under "Run", change "Normal" to "Maximized" so the program opens in full screen.
 
 3. In the script below, change the filepath to point toward the shortcut on your desktop.
 Be conscious of the / versus \ !
+
+---------------------------------------
+Still to be explored:
+Set focus of window to "Notepad" automatically (win32gui?)
