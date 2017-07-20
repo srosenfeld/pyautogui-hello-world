@@ -3,6 +3,8 @@ Type "Hello World!" in Windows Notepad
 --------------------------------------
 Description: This basic program utilizes Python's 'os' command to open a new notepad file.
 After notepad is open and focused, the Python pyautogui package sends keyboard and mouse commands to the windows.
+
+Note: This program only works on Windows 10, still researching ways for this to work on earlier versions of Windows.
 --------------------------------------
 
 Instructions:
