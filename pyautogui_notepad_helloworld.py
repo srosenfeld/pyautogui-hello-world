@@ -6,25 +6,36 @@ After notepad is open and focused, the Python pyautogui package sends keyboard a
 --------------------------------------
 
 Instructions:
-1. Install Python 3 (I'm using 3.6) and use "pip install pyautogui" to install pyautogui on Windows
+
+Install Python 3 (I'm using 3.6) and use "pip install pyautogui" to install pyautogui on Windows
 For more information in PyAutoGui: https://pyautogui.readthedocs.io
-
-2. Add a shortcut to Notepad on your desktop, right click the shortcut, go to Properties.
-Under "Run", change "Normal" to "Maximized" so the program opens in full screen.
-
-3. In the script below, change the filepath to point toward the shortcut on your desktop.
-Be conscious of the / versus \ !
-
-Note: Please be sure that you don't leave a window blocking notepad when it opens.
-You can change where the mouse goes and clicks in pg.doubleClick(x, y) if need be.
 
 '''
 
 import os
 import pyautogui as pg
+import time
+
+#Opens Task View Interface
+pg.keyDown('winleft')
+pg.press('tab')
+pg.keyUp('winleft')
+
+#Create new virtual desktop
+pg.keyDown('winleft')
+pg.keyDown('ctrl')
+pg.press('d')
+pg.keyUp('winleft')
+pg.keyUp('ctrl')
+
+#Select new virtual desktop
+pg.press('enter')
+
+#Wait 2 seconds
+pg.PAUSE = 2
 
 #change the filepath below to match the shortcut on your desktop
-filepath = "C:/Users/srosenfeld/desktop/notepadshortcut"
+filepath = "C:/Windows/System32/notepad.exe"
 
 #opens the file specified in filepath
 os.startfile(filepath)
@@ -32,11 +43,38 @@ os.startfile(filepath)
 #changes the number of seconds that each step waits until next one
 pg.PAUSE = 1
 
+#Opens Task View Interface
+pg.keyDown('winleft')
+pg.press('tab')
+pg.keyUp('winleft')
+
+#Selects Notepad as top-level program
+pg.press('enter')
+
 #if True, the program will close when mouse goes to top-left corner
 pg.FAILSAFE = False
 
-#left clicks at the x-y coordinates 960, 200
-pg.doubleClick(200, 200, 1, button='left')
-
 #sends the keyboard command to the selected window at the seconds specified in interval
 pg.typewrite('Hello world!\n', interval = 0.01)
+
+#Saves file
+pg.keyDown('ctrl')
+pg.press('s')
+pg.keyUp('ctrl')
+
+#Names file "Hello world" + date and saves it by closing "Save" window
+pg.typewrite(('Hello world ' + str(time.strftime("%d-%m-%Y ")) + str(time.strftime("%H-%M-%S"))), interval = 0.01)
+pg.press('enter')
+
+#Closes Notepad
+pg.keyDown('altleft')
+pg.press('space')
+pg.press('c')
+pg.keyUp('altleft')
+
+#Close current virtual desktop
+pg.keyDown('winleft')
+pg.keyDown('ctrl')
+pg.press('f4')
+pg.keyUp('winleft')
+pg.keyUp('ctrl')
