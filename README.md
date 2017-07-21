@@ -21,4 +21,3 @@ For more information in PyAutoGui: https://pyautogui.readthedocs.io
 Further goals:
 
 1. Get program to operate on any version of Windows, then any OS
-2. Check to see if user has pyautogui installed and, if not, install for user
