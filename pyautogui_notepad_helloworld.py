@@ -15,7 +15,6 @@ import os
 import time
 import sys
 import subprocess
-import time
 
 #Starts timer for measuring speed of script
 start = time.time()
