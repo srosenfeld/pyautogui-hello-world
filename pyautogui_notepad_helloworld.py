@@ -1,22 +1,37 @@
 '''
 Type "Hello World!" in Windows Notepad
 --------------------------------------
-Description: This basic program utilizes Python's 'os' command to open a new notepad file.
+Description:
+This basic program utilizes several modules to open a new notepad file, type "Hello world", and save it to the desktop.
 After notepad is open and focused, the Python pyautogui package sends keyboard and mouse commands to the windows.
+The script will check to see if pyautogui is installed on the current machine and, if not, will install and continue the script.
 
-Note: This program only works on Windows 10, still researching ways for this to work on earlier versions of Windows.
+Note:
+This program currently only works on Windows 10. I'm still researching ways for this to work on earlier versions of Windows.
 --------------------------------------
-
-Instructions:
-
-Install Python 3 (I'm using 3.6) and use "pip install pyautogui" to install pyautogui on Windows
-For more information in PyAutoGui: https://pyautogui.readthedocs.io
-
 '''
 
 import os
-import pyautogui as pg
 import time
+import sys
+import subprocess
+import time
+
+#Starts timer for measuring speed of script
+start = time.time()
+
+#Check to see if pyautogui is installed
+try:
+    import pyautogui as pg
+    print("Script proceeding - pyautogui already installed")
+
+#If not installed, use subprocess to send command to shell
+except ImportError:
+    print("Installing pyautogui")
+    subprocess.call("pip install pyautogui")
+    sys.exit(1)
+    print("Script proceeding - pyautogui now installed")
+    import pyautogui as pg
 
 #Opens Task View Interface
 pg.keyDown('winleft')
@@ -80,3 +95,9 @@ pg.keyDown('ctrl')
 pg.press('f4')
 pg.keyUp('winleft')
 pg.keyUp('ctrl')
+
+#Ends timer for measuring time of script
+end = time.time()
+
+#Prints "Complete"
+print("Script complete. Time elapsed: " + str(end-start) + "seconds")
