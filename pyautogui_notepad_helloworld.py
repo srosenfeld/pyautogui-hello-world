@@ -50,7 +50,7 @@ pg.press('enter')
 #Wait 2 seconds
 pg.PAUSE = 2
 
-#change the filepath below to match the shortcut on your desktop
+#change the filepath below to match the application path
 filepath = "C:/Windows/System32/notepad.exe"
 
 #opens the file specified in filepath
