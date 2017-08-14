@@ -18,6 +18,9 @@ import os
 import pyautogui as pg
 import time
 
+#Sets Home Directory for Current User
+homedir = os.environ['HOME']
+
 #Opens Task View Interface
 pg.keyDown('winleft')
 pg.press('tab')
@@ -64,8 +67,8 @@ pg.keyDown('ctrl')
 pg.press('s')
 pg.keyUp('ctrl')
 
-#Names file "Hello world" + date and saves it by closing "Save" window
-pg.typewrite(('Hello world ' + str(time.strftime("%d-%m-%Y ")) + str(time.strftime("%H-%M-%S"))), interval = 0.01)
+#Names file "Hello world" + date and saves it to the desktop by closing "Save" window
+pg.typewrite((homedir + '\Desktop\\' + 'Hello world ' + str(time.strftime("%d-%m-%Y ")) + str(time.strftime("%H-%M-%S"))), interval = 0.01)
 pg.press('enter')
 
 #Closes Notepad
