@@ -11,7 +11,7 @@ This program currently only works on Windows 10. I'm still researching ways for 
 --------------------------------------
 '''
 
-import os
+import os.path
 import time
 import sys
 import subprocess
@@ -32,11 +32,6 @@ except ImportError:
     print("Script proceeding - pyautogui now installed")
     import pyautogui as pg
 
-'''
-COMMENTED OUT FOR TESTING 8-22-17
-#Sets Home Directory for Current User
-homedir = os.environ['HOME']
-'''
 
 #Opens Task View Interface
 pg.keyDown('winleft')
@@ -84,8 +79,13 @@ pg.keyDown('ctrl')
 pg.press('s')
 pg.keyUp('ctrl')
 
+
+#COMMENTED OUT FOR TESTING 8-22-17
+#Sets Home Directory for Current User
+homedir = os.path.expanduser('~')
+
 #Names file "Hello world" + date and saves it to the desktop by closing "Save" window
-pg.typewrite(( 'C:\\Users\\csci\\Desktop\\'+ 'Hello world ' + str(time.strftime("%d-%m-%Y ")) + str(time.strftime("%H-%M-%S"))), interval = 0.01)
+pg.typewrite(( homedir + '\\Desktop\\Hello world ' + str(time.strftime("%d-%m-%Y ")) + str(time.strftime("%H-%M-%S"))), interval = 0.01)
 pg.press('enter')
 
 #Closes Notepad
